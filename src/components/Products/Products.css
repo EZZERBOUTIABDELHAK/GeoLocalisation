@@ -1,0 +1,189 @@
+.products {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.product-card {
+  position: relative;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 28px;
+  background: var(--white);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-5px);
+  border-color: #ccc;
+}
+
+.product-card.highlighted {
+  border-color: var(--red);
+  background: linear-gradient(160deg, #fff 0%, #fff8f8 100%);
+  box-shadow: 0 8px 40px rgba(204, 0, 0, 0.12);
+}
+
+.product-card.highlighted:hover {
+  box-shadow: 0 16px 48px rgba(204, 0, 0, 0.2);
+  transform: translateY(-8px);
+}
+
+.plan-popular {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Logo */
+.plan-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+}
+
+.plan-logo-icon {
+  color: var(--red);
+  font-size: 1.1rem;
+}
+
+.plan-logo-text {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--black);
+}
+
+.plan-logo-sup {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--red);
+  background: rgba(204,0,0,0.1);
+  padding: 1px 4px;
+  border-radius: 2px;
+  border: 1px solid rgba(204,0,0,0.3);
+}
+
+.plan-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -0.5px;
+}
+
+.plan-vehicles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--black);
+}
+
+.plan-vehicles-icon {
+  color: var(--red);
+  font-size: 0.75rem;
+}
+
+.plan-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.4;
+}
+
+.plan-features li svg {
+  color: var(--red);
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 0.7rem;
+}
+
+.plan-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  border: 2px solid var(--black);
+  color: var(--black);
+  background: transparent;
+  transition: var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.plan-btn:hover {
+  background: var(--black);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.plan-btn-filled {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+.plan-btn-filled:hover {
+  background: var(--red-dark);
+  border-color: var(--red-dark);
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .products-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding: 10px 24px 30px;
+    /* Hide scrollbar but allow scrolling */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .products-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-card {
+    flex: 0 0 85%;
+    max-width: 340px;
+    scroll-snap-align: center;
+  }
+}
